@@ -7,6 +7,7 @@ class Game {
         this.round = 1
         this.audio = document.querySelector("audio")
         this.audio.volume = 0.2
+        this.gameStart = false
 
 
         // this.vert = document.getElementById("green").style.backgroundColor;
@@ -32,6 +33,8 @@ class Game {
                     $(".status").text("LOOSE...").css("border", "3px solid rgb(244, 126, 126)").css("color", "rgb(244, 126, 126)")
                     $("h1").text("RESTART").css("font-size", "20px").css("margin-top", "37px")
                     $(".compteur").css("color", "transparent")
+                    this.round = 1
+                    this.gameStart = false
                     return false
                 }
             }

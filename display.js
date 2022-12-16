@@ -1,6 +1,6 @@
 class Display { 
     constructor() {
-        this.game = new Game()
+        this.game = new Game() 
         this.vert = document.querySelector(".green") // 0
         this.rouge = document.querySelector('.red') // 1
         this.bleu = document.querySelector('.blue') // 2
@@ -14,16 +14,18 @@ class Display {
         this.isUserTurn = false
         this.currentSound = true
         this.currentMode = false
-        this.gameStart = false
-        this.round = 1
+        this.gameStart = this.gameStart
+        this.round = this.game.round
         this.addListener()
         
     }
     
     addListener() {
+        this.gameStart = false
         this.start.addEventListener('click', () => {
             this.gameStart = true
             this.game.score = 0
+            this.game.round = 1
             $(".score").text("SCORE : " + this.game.score)
             this.game.createCombinaison()
             this.readCombinaison()
@@ -65,31 +67,87 @@ class Display {
         })
         
         this.vert.addEventListener("click", () =>{
-            $('.green').css('background-color','rgb(138, 235, 140)')
-            setTimeout(() => {
-                $('.green').css('background-color','rgba(0, 0, 0, 0)')
-            }, 300)
+            if(this.gameStart == true) {
+                if(this.isUserTurn == true) {
+                    $('.green').css('background-color','rgb(138, 235, 140)')
+                    setTimeout(() => {
+                        $('.green').css('background-color','rgba(0, 0, 0, 0)')
+                    }, 200)
+                } else if(this.isUserTurn == false) {
+                    $('.green').css('background-color','rgba(0, 0, 0, 0)')
+                    setTimeout(() => {
+                        $('.green').css('background-color','rgba(0, 0, 0, 0)')
+                    }, 200)
+                }
+            } else {
+                $('.green').css('background-color','rgb(138, 235, 140)')
+                setTimeout(() => {
+                    $('.green').css('background-color','rgba(0, 0, 0, 0)')
+                }, 200)
+            }
         })
 
         this.rouge.addEventListener("click", () =>{
-            $('.red').css('background-color','rgb(244, 126, 126)')
-            setTimeout(() => {
-                $('.red').css('background-color','rgba(0, 0, 0, 0)')
-            }, 300)
+            if(this.gameStart == true) {
+                if(this.isUserTurn == true) {
+                    $('.red').css('background-color','rgb(244, 126, 126)')
+                    setTimeout(() => {
+                        $('.red').css('background-color','rgba(0, 0, 0, 0)')
+                    }, 200)
+                } else if(this.isUserTurn == false) {
+                    $('.red').css('background-color','rgba(0, 0, 0, 0)')
+                    setTimeout(() => {
+                        $('.red').css('background-color','rgba(0, 0, 0, 0)')
+                    }, 200)
+                }
+            } else {
+                $('.red').css('background-color','rgb(244, 126, 126)')
+                setTimeout(() => {
+                    $('.red').css('background-color','rgba(0, 0, 0, 0)')
+                }, 200)
+            }
         })
         
         this.bleu.addEventListener("click", () =>{
-            $('.blue').css('background-color','rgb(144, 146, 230)')
-            setTimeout(() => {  
-                $('.blue').css('background-color','rgba(0, 0, 0, 0)')
-            }, 300)
+            if(this.gameStart == true) {
+                if(this.isUserTurn == true) {
+                    $('.blue').css('background-color','rgb(144, 146, 230)')
+                    setTimeout(() => {
+                        $('.blue').css('background-color','rgba(0, 0, 0, 0)')
+                    }, 200)
+                } else if(this.isUserTurn == false) {
+                    $('.blue').css('background-color','rgba(0, 0, 0, 0)')
+                    setTimeout(() => {
+                        $('.blue').css('background-color','rgba(0, 0, 0, 0)')
+                    }, 200)
+                }
+            } else {
+                $('.blue').css('background-color','rgb(144, 146, 230)')
+                setTimeout(() => {
+                    $('.blue').css('background-color','rgba(0, 0, 0, 0)')
+                }, 200)
+            }
         })
 
         this.jaune.addEventListener("click", () =>{
-            $('.yellow').css('background-color','rgb(237, 235, 117)')
-            setTimeout(() => {
-                $('.yellow').css('background-color','rgba(0, 0, 0, 0)')
-            }, 300)
+            if(this.gameStart == true) {
+                if(this.isUserTurn == true) {
+                    $('.yellow').css('background-color','rgb(237, 235, 117)')
+                    setTimeout(() => {
+                        $('.yellow').css('background-color','rgba(0, 0, 0, 0)')
+                    }, 200)
+                } else if(this.isUserTurn == false) {
+                    $('.yellow').css('background-color','rgba(0, 0, 0, 0)')
+                    setTimeout(() => {
+                        $('.yellow').css('background-color','rgba(0, 0, 0, 0)')
+                    }, 200)
+                }
+            } else {
+                $('.yellow').css('background-color','rgb(237, 235, 117)')
+                setTimeout(() => {
+                    $('.yellow').css('background-color','rgba(0, 0, 0, 0)')
+                }, 200)
+            }
         })
     }
 
@@ -97,6 +155,7 @@ class Display {
         if (this.game.compareCombinaison() === true) {
             $(".status").text("WIN !").css("border", "3px solid rgb(138, 235, 140)").css("color", "rgb(138, 235, 140)")
             let round = this.round
+            console.log("round => ", round)
             round++
             this.round = round
             setTimeout(() => {
@@ -106,10 +165,10 @@ class Display {
                 // $(".")
             }, 1500);
             this.isUserTurn = true
-
-        }
+        } 
     }
     // this.rouge.style.backgroundColor = "000000"
+
 
 
     readCombinaison() {
@@ -143,7 +202,7 @@ class Display {
     }
 
     darkMode() {
-        if(this.currentMode === true) {
+        if(this.currentMode == true) {
             $(".dmBtn").attr("src", "/img/moon-normal-full.png")
             $("body").css("background-color", "white").css("color", "hsl(213, 20%, 18%)")
             $("h1")
@@ -165,13 +224,14 @@ class Display {
             }, function() {
                 $(this).css("border", "3px solid hsl(30, 1%, 70%)").css("color", "hsl(213, 20%, 18%)" )
             })
-            if(this.gameStart === false) {
+            if(this.gameStart == false) {
+                console.log(this.gameStart)
                 $(".status").css("border", "3px solid hsl(30, 1%, 70%)").css("color", "hsl(213, 20%, 18%)")
                 $(".status").hover(function() {
                     $(this).css("border", "3px solid hsl(213, 20%, 18%)").css("color", "hsl(213, 20%, 18%)" )
                 }, function() {
                     $(this).css("border", "3px solid hsl(30, 1%, 70%)").css("color", "hsl(213, 20%, 18%)" )
-                })
+                }) 
             }
 
         } else if(this.currentMode === false) {
@@ -196,13 +256,13 @@ class Display {
                 $(this).css("border", "3px solid hsl(30, 1%, 70%").css("color", "wheat" )
             })
             
-            if(this.gameStart === false) {
+            if(this.gameStart == false) {
                 $(".status").css("border", "3px solid hsl(30, 1%, 70%)").css("color", "wheat")
                 $(".status").hover(function() {
                     $(this).css("border", "3px solid wheat").css("color", "hsl(30, 1%, 70%)" )
                 }, function() {
                     $(this).css("border", "3px solid hsl(30, 1%, 70%)").css("color", "wheat" )
-                })
+                })             
             }
         }
     }
