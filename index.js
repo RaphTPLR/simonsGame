@@ -7,13 +7,7 @@ class Game {
         this.round = 1
         this.audio = document.querySelector("audio")
         this.audio.volume = 0.2
-        this.gameStart = false
-
-
-        // this.vert = document.getElementById("green").style.backgroundColor;
-
-        // console.log(this.color)
-    }
+        this.gameStart = false    }
 
     createCombinaison() {
         let combinaison = []
@@ -22,7 +16,6 @@ class Game {
         }
         $("h1").text("LVL : " + this.round).css("font-size", "20px").css("margin-top", "37px")
         $(".compteur").css("color", "wheat")
-        console.log(combinaison)
         this.combinaison = combinaison
     }
 
@@ -46,7 +39,6 @@ class Game {
         if (this.userCombinaison.length < this.combinaison.length) {
             this.userCombinaison.push(el)
         }
-        console.log("user combinaison : ", el, this.userCombinaison)
     }
 
     resetCombi() {
@@ -87,16 +79,4 @@ class Game {
             }
         }
     }
-
-
-    // lightVert() {
-    // this.vert.style.backgroundColor = rgb(138, 235, 140);  
-    // }
-
-    // light() {
-    //     for( let i = 0; i < this.color.length; i++){
-    //         this.color[i].style.backgroundColor = "white"
-    //     }
-    // }
-
 }

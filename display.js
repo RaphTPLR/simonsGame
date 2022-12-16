@@ -49,7 +49,6 @@ class Display {
         })
 
         this.dmBtn.addEventListener("click", () => {
-            console.log(this.currentSound, this.currentMode)
             if(this.currentMode === true) {
                 this.currentMode = false
             }else {
@@ -158,24 +157,18 @@ class Display {
         if (this.game.compareCombinaison() === true) {
             $(".status").text("WIN !").css("border", "3px solid rgb(138, 235, 140)").css("color", "rgb(138, 235, 140)")
             let round = this.round
-            console.log("round => ", round)
             round++
             this.round = round
             setTimeout(() => {
                 this.game.combinaison.push(Math.floor(Math.random() * 4))
                 this.readCombinaison(this.lightDelay, this.notesDelay)
                 $("h1").text("LVL : " + round).css("font-size", "20px").css("margin-top", "37px")
-                // $(".")
             }, 1500);
             this.isUserTurn = true
         } 
     }
-    // this.rouge.style.backgroundColor = "000000"
-
-
 
     readCombinaison(lightDelay, notesDelay) {
-        // $('.container').attr('class','pointer-events: none') // ICI LES BOUTONS NE SE DESACTIVE PAS
         let index = 0
         this.isUserTurn = false
         if(this.round < 5) {
@@ -196,7 +189,6 @@ class Display {
         }
         $(".status").text("READING...").css('border', '3px solid rgb(144, 146, 230)').css("color", "rgb(144, 146, 230)")
         const id = setInterval(() => {
-            // console.log(index, this.game.combinaison[index])
             const colorCode = this.game.combinaison[index]
             this.colorButtons[colorCode].style.backgroundColor = this.colorOn[colorCode]
             setTimeout(() => {
@@ -216,7 +208,6 @@ class Display {
     }
 
     turnColorOff(colorIndex) {
-        console.log("==>", colorIndex, this.colorButtons[colorIndex])
         this.colorButtons[colorIndex].style.backgroundColor = "rgba(0, 0, 0, 0)"
     }
 
@@ -244,7 +235,6 @@ class Display {
                 $(this).css("border", "3px solid hsl(30, 1%, 70%)").css("color", "hsl(213, 20%, 18%)" )
             })
             if(this.gameStart == false) {
-                console.log(this.gameStart)
                 $(".status").css("border", "3px solid hsl(30, 1%, 70%)").css("color", "hsl(213, 20%, 18%)")
                 $(".status").hover(function() {
                     $(this).css("border", "3px solid hsl(213, 20%, 18%)").css("color", "hsl(213, 20%, 18%)" )
