@@ -2,6 +2,7 @@ body, html {
     height: 100%;
     color: #f5deb3;
     font-family: 'Raleway', sans-serif;
+    cursor: default;
 }
 
 body {
@@ -24,6 +25,10 @@ body {
 img {
     height: 50%;
     margin-right: 3%;
+}
+
+.questionBtn {
+    margin-left: 2%;
 }
 
 .header {

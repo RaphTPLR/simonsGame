@@ -11,6 +11,7 @@ class Display {
         this.reset = document.querySelector('.reset')
         this.dmBtn = document.querySelector('.dmBtn')
         this.soundBtn = document.querySelector('.soundBtn')
+        this.questionMark = document.querySelector('.questionBtn')
         this.isUserTurn = false
         this.currentSound = true
         this.currentMode = false
@@ -18,6 +19,8 @@ class Display {
         this.round = this.game.round
         this.lightDelay = 300
         this.notesDelay = 1000
+        this.bubble = document.querySelector(".bubble")
+        this.bubble.volume = 0.5
 
         this.addListener()
         
@@ -38,6 +41,19 @@ class Display {
             location.reload()
 
         })
+
+        // $(".status").click(console.log("status"))
+
+        // this.status.addEventListener('click', () => {
+        //     console.log("status")
+        //     if(this.gameStart === true) {
+        //         console.log("true")
+        //         $(".status").css("transform", "scale(1)")
+        //     } else if(this.gameStart === false) {
+        //         console.log("false")
+        //         $(".status").css("transform", "scale(1.03)")
+        //     }
+        // })
         
         this.soundBtn.addEventListener("click", () => { 
             if(this.currentSound === true) {
@@ -57,6 +73,11 @@ class Display {
             this.darkMode()
         })
 
+        this.questionMark.addEventListener("click", ()=> {
+            alert("FEUR")
+            close()
+        })
+        
         this.colorButtons.forEach((button, index) => {
             button.addEventListener("click", () => {
                 if (this.isUserTurn) {
@@ -67,10 +88,12 @@ class Display {
                 }           
             })
         })
+
         
         this.vert.addEventListener("click", () =>{
             if(this.gameStart == true) {
                 if(this.isUserTurn == true) {
+                    this.bubble.play()
                     $('.green').css('background-color','rgb(138, 235, 140)')
                     setTimeout(() => {
                         $('.green').css('background-color','rgba(0, 0, 0, 0)')
@@ -82,6 +105,7 @@ class Display {
                     }, 200)
                 }
             } else {
+                this.bubble.play()
                 $('.green').css('background-color','rgb(138, 235, 140)')
                 setTimeout(() => {
                     $('.green').css('background-color','rgba(0, 0, 0, 0)')
@@ -92,6 +116,7 @@ class Display {
         this.rouge.addEventListener("click", () =>{
             if(this.gameStart == true) {
                 if(this.isUserTurn == true) {
+                    this.bubble.play()
                     $('.red').css('background-color','rgb(244, 126, 126)')
                     setTimeout(() => {
                         $('.red').css('background-color','rgba(0, 0, 0, 0)')
@@ -103,6 +128,7 @@ class Display {
                     }, 200)
                 }
             } else {
+                this.bubble.play()
                 $('.red').css('background-color','rgb(244, 126, 126)')
                 setTimeout(() => {
                     $('.red').css('background-color','rgba(0, 0, 0, 0)')
@@ -113,6 +139,7 @@ class Display {
         this.bleu.addEventListener("click", () =>{
             if(this.gameStart == true) {
                 if(this.isUserTurn == true) {
+                    this.bubble.play()
                     $('.blue').css('background-color','rgb(144, 146, 230)')
                     setTimeout(() => {
                         $('.blue').css('background-color','rgba(0, 0, 0, 0)')
@@ -124,6 +151,7 @@ class Display {
                     }, 200)
                 }
             } else {
+                this.bubble.play()
                 $('.blue').css('background-color','rgb(144, 146, 230)')
                 setTimeout(() => {
                     $('.blue').css('background-color','rgba(0, 0, 0, 0)')
@@ -134,6 +162,7 @@ class Display {
         this.jaune.addEventListener("click", () =>{
             if(this.gameStart == true) {
                 if(this.isUserTurn == true) {
+                    this.bubble.play()
                     $('.yellow').css('background-color','rgb(237, 235, 117)')
                     setTimeout(() => {
                         $('.yellow').css('background-color','rgba(0, 0, 0, 0)')
@@ -145,6 +174,7 @@ class Display {
                     }, 200)
                 }
             } else {
+                this.bubble.play()
                 $('.yellow').css('background-color','rgb(237, 235, 117)')
                 setTimeout(() => {
                     $('.yellow').css('background-color','rgba(0, 0, 0, 0)')
@@ -152,6 +182,8 @@ class Display {
             }
         })
     }
+
+    
 
     restartRound() {
         if (this.game.compareCombinaison() === true) {
@@ -191,6 +223,7 @@ class Display {
         const id = setInterval(() => {
             const colorCode = this.game.combinaison[index]
             this.colorButtons[colorCode].style.backgroundColor = this.colorOn[colorCode]
+            this.bubble.play()
             setTimeout(() => {
                 this.turnColorOff(colorCode)
             }, lightDelay)
@@ -204,9 +237,10 @@ class Display {
                 }
             }
         }, notesDelay);
+        console.log(this.game.combinaison)
         this.game.resetCombi()
     }
-
+    
     turnColorOff(colorIndex) {
         this.colorButtons[colorIndex].style.backgroundColor = "rgba(0, 0, 0, 0)"
     }
@@ -214,8 +248,9 @@ class Display {
     darkMode() {
         if(this.currentMode == true) {
             $(".dmBtn").attr("src", "img/moon-normal-full.png")
+            $(".questionBtn").attr("src", "img/question-mark-regular-24 (1).png")
             $("body").css("background-color", "white").css("color", "hsl(213, 20%, 18%)")
-            $("h1")
+            $("h1") 
             $(".center").css("background-color", "white")
             $(".reset").css("border", "3px solid hsl(30, 1%, 70%)").css("color", "hsl(213, 20%, 18%)")
             this.game.audioGestion(this.currentSound, this.currentMode)
@@ -245,6 +280,7 @@ class Display {
 
         } else if(this.currentMode === false) {
             $(".dmBtn").attr("src", "img/moon-dm-normal.png")
+            $(".questionBtn").attr("src", "img/question-mark-regular-24.png")
             $("body").css("background-color", "hsl(213, 20%, 18%)").css("color", "wheat")
             $(".center").css("background-color", "hsl(213, 20%, 18%)")
             $(".reset").css("border", "3px solid hsl(30, 1%, 70%)").css("color", "wheat")

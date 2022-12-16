@@ -5,8 +5,10 @@ class Game {
         this.score = 0
         this.longueur = 1
         this.round = 1
-        this.audio = document.querySelector("audio")
+        this.audio = document.querySelector(".theme")
         this.audio.volume = 0.2
+        // this.bubble = document.querySelector(".bubble")
+        // this.bubble.volume = 0
         this.gameStart = false    }
 
     createCombinaison() {
@@ -24,7 +26,7 @@ class Game {
             for (let i = 0; i < this.combinaison.length; i++) {
                 if (this.combinaison[i] != this.userCombinaison[i]) {
                     $(".status").text("LOOSE...").css("border", "3px solid rgb(244, 126, 126)").css("color", "rgb(244, 126, 126)")
-                    $("h1").text("RESTART").css("font-size", "20px").css("margin-top", "37px")
+                    $("h1").text("DEBUG").css("font-size", "20px").css("margin-top", "37px")
                     $(".compteur").css("color", "transparent")
                     this.round = 1
                     this.gameStart = false
@@ -64,17 +66,21 @@ class Game {
         if(currentMode === false) {
             if(currentSound === true) {
                 this.audio.volume = 0.2
+                // this.bubble.volume = 0.5
                 $(".soundBtn").attr("src", "img/sound-dm-full .png")
             }else if(currentSound === false){
                 this.audio.volume = 0
+                // this.bubble.volume = 0
                 $(".soundBtn").attr("src", "img/sound-dm-mute.png")
             }
         } else if(currentMode === true){
             if(currentSound === true) {
                 this.audio.volume = 0.3
+                // this.bubble.volume = 0.5
                 $(".soundBtn").attr("src", "img/sound-normal-full.png")
             }else if(currentSound === false){
                 this.audio.volume = 0
+                // this.bubble.volume = 0
                 $(".soundBtn").attr("src", "img/sound-normal-mute.png")
             }
         }
