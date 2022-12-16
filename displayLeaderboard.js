@@ -32,7 +32,7 @@ class DisplayL {
         })
 
         this.playBtn.addEventListener('click', ()=> {
-            location.replace("/index.html")
+            location.replace("index.html")
         })
 
         this.questionMark.addEventListener("click", ()=> {

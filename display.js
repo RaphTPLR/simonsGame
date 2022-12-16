@@ -81,7 +81,7 @@ class Display {
         })
 
         this.leaderboardBtn.addEventListener("click", ()=> {
-            location.replace("/leaderboard.html")
+            location.replace("leaderboard.html")
             let htmlName = ""
             let htmlScore = ""
             fetch("http://localhost:2612/leaderboard").then(res => res.json()).then(res => {
