@@ -40,6 +40,7 @@ img {
     border-bottom: 2px solid transparent;
 }
 
+
 .score {
     font-size: 30px;
     margin: 5% 0 20% 0;
@@ -209,3 +210,72 @@ img:hover {
     transform: scale(1.03);
 }
 
+/* -------------------- LEADERBOARD --------------------- */
+
+.headBarreL {
+    height: 5%;
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    align-items: center;
+
+}
+
+.titleL {
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    border-bottom: 2px solid transparent;
+    margin-bottom: 2%;
+    font-size: 40px;
+    
+}
+
+.containerL {
+    background-color: transparent;
+    border: 5px solid #f5deb3;
+    height: 600px;
+    width: 400px;
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+}
+
+.name {
+    height: 100%;
+    width: 50%;
+    margin: 5% 0% 5% 5%;
+}
+
+.scoreMax {
+    height: 100%;
+    width: 50%;
+    margin: 5% 5% 5% 0;
+}
+
+
+/* .containerBack {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 3%;
+}
+
+.backBtn {
+    height: 50%;
+    width: 30%;
+    margin-right: 3%;
+    border: 3px solid #f5deb3;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.backBtn p {
+    font-size: 20px;
+} */

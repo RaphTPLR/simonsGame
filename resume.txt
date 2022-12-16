@@ -1,0 +1,11 @@
+On est assez satisfait de notre rendu final malgré les quelques bugs qui persiste, notamment:
+ 	- quand on spam les notes, on peut skip des rounds.
+	- darkmode fonctionne parfaitement quand on start le jeu en mode dark
+	mais quand on start en light mode y'a un bug avec les hover et click sur le 
+	bouton status
+
+j'ai egalement voulu essayer de mettre en place un leaderboard mais j'ai pas eu le temps de finir.
+Je m'y connaissais pas trop en base de données donc j'ai réalisé le fichier /backend/indexServer.js avec un ami.
+C'est pas fini et c'est pas encore fonctionnel mais j'suis satifait de notre travail donc j'envoie le tout.
+
+Je le finirais dans mon coin plus tard.

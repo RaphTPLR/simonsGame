@@ -21,6 +21,8 @@ class Display {
         this.notesDelay = 1000
         this.bubble = document.querySelector(".bubble")
         this.bubble.volume = 0.5
+        this.backBtn = document.querySelector(".backBtn")
+        this.leaderboardBtn = document.querySelector(".leaderboardBtn")
 
         this.addListener()
         
@@ -77,6 +79,21 @@ class Display {
             alert("FEUR")
             close()
         })
+
+        this.leaderboardBtn.addEventListener("click", ()=> {
+            location.replace("/leaderboard.html")
+            let htmlName = ""
+            let htmlScore = ""
+            fetch("http://localhost:2612/leaderboard").then(res => res.json()).then(res => {
+                console.log(res)
+                res.forEach( function(row) {
+                    htmlName += "<p>" + row.name + "</p>"
+                    htmlScore += "<p>" + row.score + "</p>"
+                })
+                document.getElementById("names").innerHTML = htmlName
+                document.getElementById("scores").innerHTML = htmlScore
+            })
+        })
         
         this.colorButtons.forEach((button, index) => {
             button.addEventListener("click", () => {
@@ -88,6 +105,7 @@ class Display {
                 }           
             })
         })
+
 
         
         this.vert.addEventListener("click", () =>{
@@ -253,6 +271,7 @@ class Display {
             $("h1") 
             $(".center").css("background-color", "white")
             $(".reset").css("border", "3px solid hsl(30, 1%, 70%)").css("color", "hsl(213, 20%, 18%)")
+            $(".leaderboardBtn").attr("src", "img/objects-vertical-bottom-solid-24.png")
             this.game.audioGestion(this.currentSound, this.currentMode)
             $(".title").hover(function() {
                 $(this).css("border-bottom", "2px solid hsl(213, 20%, 18%)")
@@ -284,6 +303,7 @@ class Display {
             $("body").css("background-color", "hsl(213, 20%, 18%)").css("color", "wheat")
             $(".center").css("background-color", "hsl(213, 20%, 18%)")
             $(".reset").css("border", "3px solid hsl(30, 1%, 70%)").css("color", "wheat")
+            $(".leaderboardBtn").attr("src", "img/objects-vertical-bottom-regular-24.png")
             this.game.audioGestion(this.currentSound, this.currentMode)
             $(".title").hover(function() {
                 $(this).css("border-bottom", "2px solid wheat")
