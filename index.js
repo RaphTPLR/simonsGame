@@ -72,18 +72,18 @@ class Game {
         if(currentMode === false) {
             if(currentSound === true) {
                 this.audio.volume = 0.2
-                $(".soundBtn").attr("src", "/img/sound-dm-full .png")
+                $(".soundBtn").attr("src", "img/sound-dm-full .png")
             }else if(currentSound === false){
                 this.audio.volume = 0
-                $(".soundBtn").attr("src", "/img/sound-dm-mute.png")
+                $(".soundBtn").attr("src", "img/sound-dm-mute.png")
             }
         } else if(currentMode === true){
             if(currentSound === true) {
                 this.audio.volume = 0.3
-                $(".soundBtn").attr("src", "/img/sound-normal-full.png")
+                $(".soundBtn").attr("src", "img/sound-normal-full.png")
             }else if(currentSound === false){
                 this.audio.volume = 0
-                $(".soundBtn").attr("src", "/img/sound-normal-mute.png")
+                $(".soundBtn").attr("src", "img/sound-normal-mute.png")
             }
         }
     }

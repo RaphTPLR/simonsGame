@@ -203,7 +203,7 @@ class Display {
 
     darkMode() {
         if(this.currentMode == true) {
-            $(".dmBtn").attr("src", "/img/moon-normal-full.png")
+            $(".dmBtn").attr("src", "img/moon-normal-full.png")
             $("body").css("background-color", "white").css("color", "hsl(213, 20%, 18%)")
             $("h1")
             $(".center").css("background-color", "white")
@@ -235,7 +235,7 @@ class Display {
             }
 
         } else if(this.currentMode === false) {
-            $(".dmBtn").attr("src", "/img/moon-dm-normal.png")
+            $(".dmBtn").attr("src", "img/moon-dm-normal.png")
             $("body").css("background-color", "hsl(213, 20%, 18%)").css("color", "wheat")
             $(".center").css("background-color", "hsl(213, 20%, 18%)")
             $(".reset").css("border", "3px solid hsl(30, 1%, 70%)").css("color", "wheat")
