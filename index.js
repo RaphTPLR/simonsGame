@@ -1,4 +1,4 @@
-class Game { 
+class Game {  
     constructor() {
         this.combinaison = []
         this.userCombinaison = []

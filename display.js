@@ -1,4 +1,4 @@
-class Display { 
+class Display {  
     constructor() {
         this.game = new Game() 
         this.vert = document.querySelector(".green") // 0
