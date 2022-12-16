@@ -16,6 +16,9 @@ class Display {
         this.currentMode = false
         this.gameStart = this.gameStart
         this.round = this.game.round
+        this.lightDelay = 300
+        this.notesDelay = 1000
+
         this.addListener()
         
     }
@@ -28,7 +31,7 @@ class Display {
             this.game.round = 1
             $(".score").text("SCORE : " + this.game.score)
             this.game.createCombinaison()
-            this.readCombinaison()
+            this.readCombinaison(this.lightDelay, this.notesDelay)
         })
         
         this.reset.addEventListener('click', () => {
@@ -160,7 +163,7 @@ class Display {
             this.round = round
             setTimeout(() => {
                 this.game.combinaison.push(Math.floor(Math.random() * 4))
-                this.readCombinaison()
+                this.readCombinaison(this.lightDelay, this.notesDelay)
                 $("h1").text("LVL : " + round).css("font-size", "20px").css("margin-top", "37px")
                 // $(".")
             }, 1500);
@@ -171,10 +174,26 @@ class Display {
 
 
 
-    readCombinaison() {
+    readCombinaison(lightDelay, notesDelay) {
         // $('.container').attr('class','pointer-events: none') // ICI LES BOUTONS NE SE DESACTIVE PAS
         let index = 0
         this.isUserTurn = false
+        if(this.round < 5) {
+            lightDelay = 300
+            notesDelay = 1000
+        } else if(this.round < 10) {
+            lightDelay = 200
+            notesDelay = 700
+        } else if(this.round < 15) {
+            lightDelay = 150
+            notesDelay = 400
+        } else if(this.round < 20){
+            lightDelay = 100
+            notesDelay = 150
+        } else {
+            lightDelay = 50
+            notesDelay = 100
+        }
         $(".status").text("READING...").css('border', '3px solid rgb(144, 146, 230)').css("color", "rgb(144, 146, 230)")
         const id = setInterval(() => {
             // console.log(index, this.game.combinaison[index])
@@ -182,7 +201,7 @@ class Display {
             this.colorButtons[colorCode].style.backgroundColor = this.colorOn[colorCode]
             setTimeout(() => {
                 this.turnColorOff(colorCode)
-            }, 300)
+            }, lightDelay)
             index++
             if (index >= this.game.combinaison.length) {
                 clearInterval(id)
@@ -192,7 +211,7 @@ class Display {
                     
                 }
             }
-        }, 1000);
+        }, notesDelay);
         this.game.resetCombi()
     }
 
