@@ -1,0 +1,225 @@
+body, html { 
+    height: 100%;
+    color: #f5deb3;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    background-color: hsl(213, 20%, 18%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.headbarre {
+    height: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    align-items: center;
+
+}
+
+img {
+    height: 50%;
+    margin-right: 3%;
+}
+
+.header {
+    font-size: 40px;
+}
+
+.title {
+    margin-top: 5%;
+    border-bottom: 2px solid transparent;
+}
+
+.score {
+    font-size: 30px;
+    margin: 5% 0 20% 0;
+    text-align: center;
+}
+
+.container {
+    /* background-color: hsl(30, 1%, 70%); */
+    height: 400px;
+    width: 400px;
+    border-radius: 30px;
+    /* border: 6px solid hsl(30, 1%, 70%); */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.red {
+    background-color: transparent;
+    border: 8px solid rgb(244, 126, 126);
+    width: 40%;
+    height: 40%;
+    /* border-style: inset;
+    border: 5px ; */
+    border-radius: 10px;
+    border-top-right-radius: 30px;
+}
+
+.green {
+    background-color: transparent;
+    border: 8px solid rgb(138, 235, 140);
+    width: 40%;
+    height: 40%;
+    border-radius: 10px;
+    border-top-left-radius: 30px;
+    margin-right: 5%;
+}
+
+.blue {
+    background-color: transparent;
+    border: 8px solid rgb(144, 146, 230);
+    width: 40%;
+    height: 40%;
+    border-radius: 10px;
+    border-bottom-left-radius: 30px;
+    margin-right: 5%;
+}
+
+.yellow {
+    background-color: transparent;
+    border: 8px solid rgb(237, 235, 117);
+    width: 40%;
+    height: 40%;
+    border-radius: 10px;
+    border-bottom-right-radius: 30px;
+}
+
+.center {
+    background-color: hsl(213, 19%, 18%);
+    border: 5px solid hsl(30, 1%, 70%);
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.center h1 {
+    font-size: 25px;
+    margin: 35px 0 0 0;
+}
+
+.compteur {
+    font-size: 20px;
+    margin-top: 0;
+    color: transparent;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    cursor: pointer;
+}
+
+.status {
+    height: 29px;
+    width: 123px;
+    background-color: transparent;
+    border: 3px solid hsl(30, 1%, 70%);
+    border-radius: 50px;
+    font-size: 25px;
+    padding: 15px 30px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.reset {
+    height: 29px;
+    width: 123px;
+    background-color: transparent;
+    border: 3px solid hsl(30, 1%, 70%);
+    border-radius: 50px;
+    font-size: 25px;
+    padding: 15px 30px;
+    text-align: center;
+}
+
+/* -------------------- HOVER ---------------------- */
+
+.header .title:hover {
+    border-bottom: 2px solid wheat;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+.center:hover {
+    border: 5px solid wheat;
+    /* color: hsl(30, 1%, 70%); */
+}
+
+.status:hover {
+    border: 3px solid wheat;
+    color: hsl(30, 1%, 70%);
+}
+
+.reset:hover {
+    border: 3px solid wheat;
+    color: hsl(30, 1%, 70%);
+}
+
+.green:hover {
+    transform: scale(1.03);
+}
+
+.red:hover {
+    transform: scale(1.03);
+}
+
+.blue:hover {
+    transform: scale(1.03);
+}
+
+.yellow:hover {
+    transform: scale(1.03);
+}
+
+#colorsBtn {
+    cursor: pointer;
+}
+
+/* -------------------- ACTIVE ---------------------- */
+
+.center:active {
+    transform: scale(1.03);
+}
+
+.reset:active {
+    transform: scale(1.03);
+}
+
+.status:active {
+    transform: scale(1.03);
+}
+
+.green:active {
+    background-color: rgb(138, 235, 140);
+}
+
+.red:active {
+    background-color: rgb(244, 126, 126);
+}
+
+.blue:active {
+    background-color: rgb(144, 146, 230);
+}
+
+.yellow:active {
+    background-color: rgb(237, 235, 117);
+}
